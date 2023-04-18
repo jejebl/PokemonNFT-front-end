@@ -1,38 +1,197 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(#0035A7, #0050FF);
+  padding: 0px;
+  margin: 0px;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.Header{
+  min-height: 15vh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.buttonConnect{
+  margin-top: 40px;
+  margin-right: 40px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #FFEC00;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0035A7;
+}
+.buttonConnect:hover, .buttonGetPikachu:hover, .buttonEvolve:hover{
+  cursor: pointer;
+  background-color: #FFEC00;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.imgPokemonLogo{
+  width: 600px;
+  height: 221px;
+  margin-top: 30px;
+}
+.title {
+  font-size: 30px;
+}
+.requirement{
+  font-size: 18px;
+}
+.buttonGetPikachu {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #FFEC00;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0035A7;
+}
+
+.evolveContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.evolveTitle{
+  font-size: 18px;
+}
+.tokenIdContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tokenIdInput {
+  margin-top: 5px;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+.buttonEvolve {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #FFEC00;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0035A7;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0050FF;
+  border-radius: 10px;
+}
+
+
+
+@media screen and (max-width: 1700px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(#0035A7, #0050FF);
+    padding: 0px;
+    margin: 0px;
+    color: white;
   }
-  to {
-    transform: rotate(360deg);
+  .Header{
+    min-height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .buttonConnect{
+    margin: 0;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #FFEC00;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0035A7;
+  }
+  .buttonConnect:hover, .buttonGetPikachu:hover, .buttonEvolve:hover{
+    cursor: pointer;
+    background-color: #FFEC00;
+  }
+  
+  .imgPokemonLogo{
+    margin-top: 30px;
+    width: 80%;
+    height: auto;
+  }
+  .title {
+    margin-top: 50px;
+    font-size: 25px;
+  }
+  .requirement{
+    font-size: 15px;
+  }
+  .buttonGetPikachu {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #FFEC00;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0035A7;
+  }
+  
+  .evolveContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .evolveTitle{
+    font-size: 18px;
+  }
+  .tokenIdContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tokenIdInput {
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+  }
+  
+  .buttonEvolve {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #FFEC00;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0035A7;
   }
 }
