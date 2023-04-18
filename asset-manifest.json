@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/PokemonNFT-front-end/static/css/main.188898c4.css",
+    "main.js": "/PokemonNFT-front-end/static/js/main.c138e8fc.js",
+    "static/media/Pokémon_logo.png": "/PokemonNFT-front-end/static/media/Pokémon_logo.e93152c8b9160d3198d7.png",
+    "index.html": "/PokemonNFT-front-end/index.html",
+    "main.188898c4.css.map": "/PokemonNFT-front-end/static/css/main.188898c4.css.map",
+    "main.c138e8fc.js.map": "/PokemonNFT-front-end/static/js/main.c138e8fc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.188898c4.css",
+    "static/js/main.c138e8fc.js"
+  ]
+}
