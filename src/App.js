@@ -69,7 +69,6 @@ function App() {
           signer
         );
 
-        console.log(Pokemon);
         setGetPikachuUpdate("A Pikachu is sent to your wallet, please wait...")
         try {
           const getPikachuCall = await Pokemon.mint(pikachuData,"Pikachu");
@@ -149,13 +148,18 @@ function App() {
 
       <br></br><br></br><br></br>
       {defaultAccount && (
-        <a rel="noopener noreferrer" target="_blank" href='https://jejebl.github.io/NFTExplorerMumbai/'>See your Pokémon here</a>
+        <div className='explorer_container'>
+          <a rel="noopener noreferrer" target="_blank" href='https://jejebl.github.io/NFTExplorerMumbai/'><button className='button_explorer'>See your Pokémon on my NFTExplorerMumbai project</button></a>
+          <p>If you have evolve your Pikachu, you need to wait a long time to see a Raichu instead of your Pikachu on my NFTExplorerMumbai project. But if you want to see it now, you can go to Opensea testnet and click on refresh metadata when you are on the page of your Pikachu which you evolved.</p> 
+          <a rel="noopener noreferrer" target="_blank" href='https://testnets.opensea.io/'><button className='button_explorer'>See your Pokémon on Opensea testnet</button></a>
+        </div>
       )}
       <br></br><br></br><br></br><br></br>
 
       {defaultAccount && (
         <form className='evolveContainer'>
-          <p className='evolveTitle'>You can evolve your Pikachu NFT here:</p>
+          <p className='evolveTitle'>You can evolve your Pikachu NFT here:</p><br></br>
+          <p>You can view the Id of your Pokemon in his name, right after the #.</p>
           <br /><br />
           <div className='tokenIdContainer'>
             <label>Token Id of your Pikachu</label>

@@ -42,7 +42,8 @@
   font-size: 30px;
 }
 .requirement{
-  font-size: 18px;
+  font-size: 26px;
+  color: black;
 }
 .buttonGetPikachu {
   padding: 8px 16px;
@@ -54,6 +55,29 @@
   color: #0035A7;
 }
 
+.explorer_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.explorer_container p {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.button_explorer {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #FFEC00;
+  font-size: 15px;
+  color: black;
+  cursor: pointer;
+}
+
 .evolveContainer {
   display: flex;
   flex-direction: column;
@@ -61,7 +85,8 @@
   align-items: center;
 }
 .evolveTitle{
-  font-size: 18px;
+  font-size: 26px;
+  color: black;
 }
 .tokenIdContainer {
   display: flex;
@@ -135,10 +160,6 @@
     font-weight: 600;
     color: #0035A7;
   }
-  .buttonConnect:hover, .buttonGetPikachu:hover, .buttonEvolve:hover{
-    cursor: pointer;
-    background-color: #FFEC00;
-  }
   
   .imgPokemonLogo{
     margin-top: 30px;
@@ -167,6 +188,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 50%;
+  }
+  .evolveContainer p {
+    text-align: center;
   }
   .evolveTitle{
     font-size: 18px;
