@@ -3,7 +3,9 @@ import { ethers } from "ethers";
 import './App.css';
 import React, { useEffect, useState } from "react";
 import { pikachuData } from './pikachuData.js';
+import Pikachu from './PikachuIMG.svg';
 import { raichuData } from './raichuData.js';
+import Raichu from './RaichuIMG.svg';
 import Logo from './Pokémon_logo.png';
 
 function App() {
@@ -57,6 +59,10 @@ function App() {
   }
 
   async function getPikachu(){
+        
+    let button = document.querySelector('.buttonPikachu');
+    button.disabled = true;
+
     try {
       provider = new ethers.providers.Web3Provider(window.ethereum);
       await provider.send("eth_requestAccounts", []);
@@ -75,18 +81,25 @@ function App() {
           await getPikachuCall.wait();
           setGetPikachuUpdate("Minted");
           alert("You received a pikachu!");
+          button.disabled = false;
         } catch (error) {
           setGetPikachuUpdate("Not minted");
+          button.disabled = false;
         }
 
       } 
 
     }catch (error) {
       console.log(error);
+      button.disabled = false;
     }
   }
 
   async function evolveYourPikachu(){
+    
+    let button = document.querySelector('.buttonRaichu');
+    button.disabled = true;
+
     try {
       provider = new ethers.providers.Web3Provider(window.ethereum);
       await provider.send("eth_requestAccounts", []);
@@ -105,15 +118,18 @@ function App() {
           await pikachuEvolve.wait();
           setEvolveUpdate("Your Pikachu has evolve into Raichu");
           alert("Your Pikachu has evolve into Raichu");
+          button.disabled = false;
         } catch (error) {
           setEvolveUpdate("Your Pikachu hasn't evloved");
           alert("Your Pikachu hasn't evloved");
+          button.disabled = false;
         }
 
       } 
 
     }catch (error) {
       console.log(error);
+      button.disabled = false;
     }
   }
 
@@ -126,8 +142,9 @@ function App() {
         </div>
       )}
 
-      
-      <img className='imgPokemonLogo' src={Logo} alt="Pokémon Logo" />
+      <div className='pokemon_logo_container'>
+        <img className='imgPokemonLogo' src={Logo} alt="Pokémon Logo" />
+      </div>
       
       <p className='title'>Welcome pokémon trainer!</p>
       <br></br>
@@ -136,44 +153,45 @@ function App() {
       )}
       <br></br>
       {defaultAccount && (
-        <p className='requirement'>You can get a Pikachu NFT here:</p>
-      )}
-      <br></br><br></br>
-
-      {defaultAccount && (
-        <button className='buttonGetPikachu' onClick={getPikachu}>Get a Pikachu</button>
-      )}
-      <br></br>
-      {getPikachuUpdate}
-
-      <br></br><br></br><br></br>
-      {defaultAccount && (
-        <div className='explorer_container'>
-          <a rel="noopener noreferrer" target="_blank" href='https://jejebl.github.io/NFTExplorerMumbai/'><button className='button_explorer'>See your Pokémon on my NFTExplorerMumbai project</button></a>
-          <p>If you have evolve your Pikachu, you need to wait a long time to see a Raichu instead of your Pikachu on my NFTExplorerMumbai project. But if you want to see it now, you can go to Opensea testnet and click on refresh metadata when you are on the page of your Pikachu which you evolved.</p> 
-          <a rel="noopener noreferrer" target="_blank" href='https://testnets.opensea.io/'><button className='button_explorer'>See your Pokémon on Opensea testnet</button></a>
+        <div className='pokemon_explication_container'>
+          
+          <p>You can get a Pikachu NFT and evolve him to get a Raichu NFT instead. This NFT are deployed on Polygon Mumbai testnet network and the metadata are stored on-chain.</p>
+          <p>See your Pokemon NFT on <a rel="noopener noreferrer" target="_blank" href='https://testnets.opensea.io/'>Opensea testnet.</a></p>
+          <p>You can retrieve the tokenId of your NFT in his name after the #.</p>
+          <p>Once evolve, your Raichu can't go back and be a Pikachu!</p>
+          <p>To see your Raichu on Opensea testnet, you need to click on refresh metadata on your Pikachu.</p>
+          
         </div>
       )}
-      <br></br><br></br><br></br><br></br>
+
 
       {defaultAccount && (
-        <form className='evolveContainer'>
-          <p className='evolveTitle'>You can evolve your Pikachu NFT here:</p><br></br>
-          <p>You can view the Id of your Pokemon in his name, right after the #.</p>
-          <br /><br />
-          <div className='tokenIdContainer'>
-            <label>Token Id of your Pikachu</label>
-            <input className='tokenIdInput' id="tokenId" type="number" placeholder="tokenId" onChange={onTokenIdChange} required/>
+        <div className='pokemon_action_container'>
+          
+          <div className='pokemon_container'>
+            <div className='pokemon_img_container'>
+              <img alt="Pikachu" src={Pikachu}></img>
+            </div>
+            <button className='buttonPikachu' onClick={getPikachu}>Get a Pikachu</button>
+            {getPikachuUpdate}
           </div>
-          <br /><br />
-          <button className='buttonEvolve' type="button" onClick={evolveYourPikachu}>Evolve your Pikachu</button>
-        </form>
+
+          <div className='pokemon_container'>
+            <div className='pokemon_img_container'>
+              <img alt="Raichu" src={Raichu}></img>
+            </div>
+            <form className='evolveContainer'>
+              <div className='tokenIdContainer'>
+                <label>Token Id of your Pikachu</label>
+                <input className='tokenIdInput' id="tokenId" type="number" placeholder="tokenId" onChange={onTokenIdChange} required/>
+              </div>
+              <button className='buttonRaichu' type="button" onClick={evolveYourPikachu}>Evolve your Pikachu</button>
+            </form>
+            {evolveUpdate}
+          </div>
+
+        </div>
       )}
-      <br /><br />
-      {evolveUpdate}
-
-
-
     </div>
   );
 }
